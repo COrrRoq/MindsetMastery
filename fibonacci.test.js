@@ -17,3 +17,8 @@ test('When "next" is used, the sequence moves to the next number', () => {
     expect(fibonacci.next());
     toThrow();
 })
+
+test('When seeded at 0, the sequence starts', () => {
+    fibonacci.init(0);
+    expect(fibonacci.next()).toBe(toThrow);
+ })
