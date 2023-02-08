@@ -47,13 +47,12 @@ test('When initialised at 0, give an error', () => {
         fibonacci.init(9);
     }).toThrow();
      })
-
- 
      //this one fails test, bug in code because it doesn't account for this
+     
  test('When skipped backwards, throw error', () => {
     fibonacci.init(8);
     expect(() => {
         fibonacci.skip(-3);
-     }).toThrow(); 
+     }).toThrow();
  })
 
