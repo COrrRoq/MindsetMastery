@@ -1,21 +1,48 @@
 class Fibonacci {
     constructor() {
-        // Where does your sequence start by default? 
+        //Initialises fib seeds
+        this.previous = 0;
+        this.current = 1;
     }
 
+    // Return the next Fibonacci number in the current sequence
     next() {
-        // Return the next Fibonacci number in the current sequence
-        throw new Error('Returning next number is not yet supported!');
+        //calculate next fib number
+        const next = this.previous + this.current;
+
+        //move on the sequence
+        this.previous = this.current;
+        this.current = next;
+
+        //return the calculated fib number
+        return next;
     }
 
+     // Initialize sequence with number to start from
     init(seed) {
-        // Initialize sequence with number to start from
-        throw new Error('Initializing sequence is not yet supported!');
+        //reset seeds back to the start
+        this.previous = 0;
+        this.current = 1;
+        
+        //loop to find the seed
+        while (this.current < seed) {
+            this.next();
+        }
+
+        //check if real fib number
+        if (this.current != seed) {
+            throw new Error('Not a real fib number!');
+        }
     }
 
     skip(forward) {
+        let next;
+        for (let i = 0; i < forward; i++) {
+          this.next();
+        }
+
+        return this.current;
         // Return the Fibonacci number further on in the sequence
-        throw new Error('Skipping forward is not yet supported!');
     }
 }
 
