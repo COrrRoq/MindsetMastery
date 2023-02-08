@@ -13,12 +13,26 @@ test('When initialized the next number can be returned', () => {
 
 
 test('When "next" is used, the sequence moves to the next number', () => {
-    fibonacci.next();
-    expect(fibonacci.next());
-    toThrow();
+    expect(fibonacci.next()).toBe(1);
+
 })
 
-test('When seeded at 0, the sequence starts', () => {
-    fibonacci.init(0);
-    expect(fibonacci.next()).toBe(toThrow);
+test('When initialised at 0, give an error', () => {
+    expect(fibonacci.init(0)).toThrow()
+ })
+
+
+ test('When initialised at 2, skip will move forward 4.', () => {
+    fibonacci.init(2);
+    expect(fibonacci.skip(4)).toBe(13);
+ })
+
+
+ test('When initialised at 1, skip will go to 25th number.', () => {
+    fibonacci.init(1);
+    expect(fibonacci.skip(25)).toBe(75025);
+ })
+
+ test('When initialised at a non-Fibonacci number, give an error', () => {
+    expect(fibonacci.init(4)).toThrow()
  })
