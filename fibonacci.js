@@ -40,7 +40,7 @@ class Fibonacci {
         for (let i = 0; i < forward; i++) {
           this.next();
         }
-
+    
         return this.current;
         // Return the Fibonacci number further on in the sequence
     }
