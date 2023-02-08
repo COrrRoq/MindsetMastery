@@ -22,13 +22,13 @@ test('When initialised at 0, give an error', () => {
  })
 
 
- test('When initialised at 2, skip will move forward 4.', () => {
+ test('When initialised at 2, skip will move forward the specified number.', () => {
     fibonacci.init(2);
     expect(fibonacci.skip(4)).toBe(13);
  })
 
 
- test('When initialised at 1, skip will go to 25th number.', () => {
+ test('When initialised at 1, skip will jump the specified number.', () => {
     fibonacci.init(1);
     expect(fibonacci.skip(25)).toBe(75025);
  })
@@ -36,3 +36,10 @@ test('When initialised at 0, give an error', () => {
  test('When initialised at a non-Fibonacci number, give an error', () => {
     expect(fibonacci.init(4)).toThrow()
  })
+
+ 
+ test('When skipped with a minus number, throw error', () => {
+    fibonacci.init(8);
+    expect(fibonacci.skip(-3)).toThrow()
+ })
+
